@@ -1,4 +1,98 @@
+# mysql环境基本操作
+1. 查看MySQL版本、帮助
+```
+C:\Users\win7>mysql --version
+mysql  Ver 14.14 Distrib 5.7.16, for Win64 (x86_64)
+C:\Users\win7>mysql --help
+mysql  Ver 14.14 Distrib 5.7.16, for Win64 (x86_64)
+```
+2. 登录MySQL
+```
+C:\Users\win7>mysql -u root -p
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 5.7.16-log MySQL Community Server (GPL)
+```
+3. 退出mysql
+```
+mysql> quit;
+Bye
 
+C:\Users\win7>
+mysql> exit;
+Bye
+
+C:\Users\win7>
+```
+4. 显示数据库状态
+```
+mysql> status;
+--------------
+mysql  Ver 14.14 Distrib 5.7.16, for Win64 (x86_64)
+
+Connection id:          19
+Current database:       yiibai
+Current user:           root@localhost
+SSL:                    Not in use
+Using delimiter:        ;
+Server version:         5.7.16-log MySQL Community Server (GPL)
+Protocol version:       10
+Connection:             localhost via TCP/IP
+Server characterset:    utf8
+Db     characterset:    utf8
+Client characterset:    gbk
+Conn.  characterset:    gbk
+TCP port:               3306
+Uptime:                 8 days 15 hours 57 min 16 sec
+```
+5. 显示数据库数量
+```
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mybatis            |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sampledb           |
+| shop               |
+| ssmdemo            |
+| sys                |
+| world              |
+| yiibai             |
++--------------------+
+11 rows in set (0.00 sec)
+```
+6. 使用数据库
+```
+mysql> use mybatis;
+Database changed
+```
+7. 查询当前使用的数据库名
+```
+mysql> select database();
++------------+
+| database() |
++------------+
+| mybatis    |
++------------+
+1 row in set (0.00 sec)
+```
+8. 显示表数量
+```
+mysql> show tables;
++-------------------+
+| Tables_in_mybatis |
++-------------------+
+| user              |
++-------------------+
+1 row in set (0.00 sec)
+```
+
+# 数据库的创建、删除、
 # sql语言及其种类
 ## DDL(data definition language,数据定义语言)
 用来创建或者删除存储数据用的数据库以及数据库中的表等对象
@@ -10,7 +104,7 @@ create table <表名> (
     <列1> <数据类型> <该列约束>,
     <列2> <数据类型> <该列约束>,
     ...
-    <该表的约束>...
+    <该表的约束>...yi
 );
  CREATE TABLE Product
  (product_id char(4) not null,
@@ -44,6 +138,4 @@ drop table <表名>
 3. GRANT：赋予用户操作权限、
 4. REVOKE：取消用户的操作权限
 
-## 显示数据库与表的数量
-show databases
-show tables
+## 显示数据库与表
